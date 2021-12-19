@@ -1,4 +1,50 @@
+import json
 from tkinter import *
+
+
+class MainClass:
+    start = True
+    answer = ''
+    data_list = {}
+
+    def __init__(self):
+        json_dict = get_data_from_json('dump.json')
+        self.data_list = json_dict['data']
+        self.count = 0
+
+    def set_count(self, c):
+        self.count = c
+
+    def get_count(self):
+        return self.count
+
+    def add_count(self):
+        self.count += 1
+
+    def get_dict(self):
+        return self.data_list
+
+    def set_dict(self, d):
+        self.data_list = d
+
+    def print_dict(self):
+        print(self.data_list)
+
+    def is_start(self):
+        return self.start
+
+    def set_start(self, b):
+        self.start = b
+
+    def set_answer(self, param):
+        self.answer = param
+
+
+# Функция получения данных из json-файла
+def get_data_from_json(filename):
+    with open(filename, 'r', encoding="utf-8") as file:
+        data = file.read()
+    return json.loads(data)
 
 
 class WindowClass:
@@ -76,5 +122,6 @@ if __name__ == '__main__':
     window.geometry('620x550')  # Задание размера окна
     window.config(bg='black')
 
+    m = MainClass()  # Главный объект
     w = WindowClass(window)  # Объект окна
     w.window.mainloop()  # Запуск окна
