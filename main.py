@@ -98,21 +98,124 @@ class WindowClass:
                         lbl_value_6, lbl_value_7, lbl_value_8, lbl_value_9, lbl_value_10,
                         lbl_value_11, lbl_value_12, lbl_value_13, lbl_value_14, lbl_value_15]
 
+    def set_score(self, count):
+        if count < 16:
+            self.lbl_arr[count].config(bg='orange')
+        if 0 < count < 15:
+            self.lbl_arr[count - 1].config(bg='green')
+
+    def update_ask(self, dictionary, i):
+        print("Update: " + str(i))
+        for element in dictionary:
+            if element["id"] == i:
+                self.lbl_value.config(text="" + element["ask"])
+                self.btn_a.config(text="A: " + element["answerA"])
+                self.btn_b.config(text="B: " + element["answerB"])
+                self.btn_c.config(text="C: " + element["answerC"])
+                self.btn_d.config(text="D: " + element["answerD"])
+                self.btn_a.update()
+                self.btn_b.update()
+                self.btn_c.update()
+                self.btn_d.update()
+
+
+def next_ask(main, win):
+    c = main.get_count()
+    if c < 15:
+        main.add_count()
+        #  win.set_score(c)
+    else:
+        next_game(main, win)
+
+
+def next_game(main, win):
+    main.set_count(0)
+    main.set_start(True)
+    for i in range(len(window.lbl_arr)):
+        win.lbl_arr[i].config(bg='white')
+        win.lbl_arr[i].update()
+    win.btn_a.config(text="A: ")
+    win.btn_b.config(text="B: ")
+    win.btn_c.config(text="C: ")
+    win.btn_d.config(text="D: ")
+    win.btn_a.update()
+    win.btn_b.update()
+    win.btn_c.update()
+    win.btn_d.update()
+    win.lbl_value.config(text="Нажмите на любую кнопку, чтобы начать!")
+    win.lbl_value.update()
+
 
 def pressed_a():
-    print("a")
+    if m.is_start():
+        m.set_start(False)
+        #  w.update_ask(m.get_dict(), 1)
+        next_ask(m, w)
+    else:
+        pressed_letter = 'a'
+        d = m.get_dict()
+        for element in d:
+            if element["id"] == m.get_count():
+                if element["answer"] == pressed_letter:
+                    next_ask(m, w)
+                    #  w.update_ask(m.get_dict(), m.get_count())
+                    break
+                else:
+                    next_game(m, w)
 
 
 def pressed_b():
-    print("b")
+    if m.is_start():
+        m.set_start(False)
+        #  w.update_ask(m.get_dict(), 1)
+        next_ask(m, w)
+    else:
+        pressed_letter = 'b'
+        d = m.get_dict()
+        for element in d:
+            if element["id"] == m.get_count():
+                if element["answer"] == pressed_letter:
+                    next_ask(m, w)
+                    #  w.update_ask(m.get_dict(), m.get_count())
+                    break
+                else:
+                    next_game(m, w)
 
 
 def pressed_c():
-    print("c")
+    if m.is_start():
+        m.set_start(False)
+        #  w.update_ask(m.get_dict(), 1)
+        next_ask(m, w)
+    else:
+        pressed_letter = 'c'
+        d = m.get_dict()
+        for element in d:
+            if element["id"] == m.get_count():
+                if element["answer"] == pressed_letter:
+                    next_ask(m, w)
+                    #  w.update_ask(m.get_dict(), m.get_count())
+                    break
+                else:
+                    next_game(m, w)
 
 
 def pressed_d():
-    print("d")
+    if m.is_start():
+        m.set_start(False)
+        #  w.update_ask(m.get_dict(), 1)
+        next_ask(m, w)
+    else:
+        pressed_letter = 'd'
+        d = m.get_dict()
+        for element in d:
+            if element["id"] == m.get_count():
+                if element["answer"] == pressed_letter:
+                    next_ask(m, w)
+                    #  w.update_ask(m.get_dict(), m.get_count())
+                    break
+                else:
+                    next_game(m, w)
 
 
 # Главная функция
