@@ -1,6 +1,6 @@
 import json
+import pytest
 from tkinter import *
-
 
 class MainClass:
     start = True
@@ -36,8 +36,6 @@ class MainClass:
     def set_start(self, b):
         self.start = b
 
-    def set_answer(self, param):
-        self.answer = param
 
 
 # Функция получения данных из json-файла
