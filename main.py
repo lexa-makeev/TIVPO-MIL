@@ -123,7 +123,7 @@ def next_ask(main, win):
     c = main.get_count()
     if c < 15:
         main.add_count()
-        #  win.set_score(c)
+        win.set_score(c)
     else:
         next_game(main, win)
 
@@ -131,7 +131,7 @@ def next_ask(main, win):
 def next_game(main, win):
     main.set_count(0)
     main.set_start(True)
-    for i in range(len(window.lbl_arr)):
+    for i in range(len(win.lbl_arr)):
         win.lbl_arr[i].config(bg='white')
         win.lbl_arr[i].update()
     win.btn_a.config(text="A: ")
@@ -149,7 +149,7 @@ def next_game(main, win):
 def pressed_a():
     if m.is_start():
         m.set_start(False)
-        #  w.update_ask(m.get_dict(), 1)
+        w.update_ask(m.get_dict(), 1)
         next_ask(m, w)
     else:
         pressed_letter = 'a'
@@ -158,7 +158,7 @@ def pressed_a():
             if element["id"] == m.get_count():
                 if element["answer"] == pressed_letter:
                     next_ask(m, w)
-                    #  w.update_ask(m.get_dict(), m.get_count())
+                    w.update_ask(m.get_dict(), m.get_count())
                     break
                 else:
                     next_game(m, w)
@@ -167,7 +167,7 @@ def pressed_a():
 def pressed_b():
     if m.is_start():
         m.set_start(False)
-        #  w.update_ask(m.get_dict(), 1)
+        w.update_ask(m.get_dict(), 1)
         next_ask(m, w)
     else:
         pressed_letter = 'b'
@@ -176,7 +176,7 @@ def pressed_b():
             if element["id"] == m.get_count():
                 if element["answer"] == pressed_letter:
                     next_ask(m, w)
-                    #  w.update_ask(m.get_dict(), m.get_count())
+                    w.update_ask(m.get_dict(), m.get_count())
                     break
                 else:
                     next_game(m, w)
@@ -185,7 +185,7 @@ def pressed_b():
 def pressed_c():
     if m.is_start():
         m.set_start(False)
-        #  w.update_ask(m.get_dict(), 1)
+        w.update_ask(m.get_dict(), 1)
         next_ask(m, w)
     else:
         pressed_letter = 'c'
@@ -194,7 +194,7 @@ def pressed_c():
             if element["id"] == m.get_count():
                 if element["answer"] == pressed_letter:
                     next_ask(m, w)
-                    #  w.update_ask(m.get_dict(), m.get_count())
+                    w.update_ask(m.get_dict(), m.get_count())
                     break
                 else:
                     next_game(m, w)
@@ -203,7 +203,7 @@ def pressed_c():
 def pressed_d():
     if m.is_start():
         m.set_start(False)
-        #  w.update_ask(m.get_dict(), 1)
+        w.update_ask(m.get_dict(), 1)
         next_ask(m, w)
     else:
         pressed_letter = 'd'
@@ -212,7 +212,7 @@ def pressed_d():
             if element["id"] == m.get_count():
                 if element["answer"] == pressed_letter:
                     next_ask(m, w)
-                    #  w.update_ask(m.get_dict(), m.get_count())
+                    w.update_ask(m.get_dict(), m.get_count())
                     break
                 else:
                     next_game(m, w)
