@@ -225,6 +225,10 @@ if __name__ == '__main__':
     window.geometry('620x550')  # Задание размера окна
     window.config(bg='black')
 
+    img = PhotoImage(file="image.gif")
+    labelPhoto = Label(master=window, image=img)
+    labelPhoto.place(x=-30, y=0)
+
     m = MainClass()  # Главный объект
     w = WindowClass(window)  # Объект окна
     w.window.mainloop()  # Запуск окна
